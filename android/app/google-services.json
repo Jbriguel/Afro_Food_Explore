@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "200776306783",
+    "project_id": "afrorestaurantfinder",
+    "storage_bucket": "afrorestaurantfinder.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:200776306783:android:d946c687f3f230f09ecbea",
+        "android_client_info": {
+          "package_name": "com.example.afrofood_explore"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxQiWWZz_9ibuDAsOTV4PbNGQrLWbjxUQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
