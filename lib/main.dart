@@ -1,3 +1,4 @@
+import 'package:afrofood_explore/init.dart';
 import 'package:afrofood_explore/theme/colors/appColors.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -26,7 +27,7 @@ Future<void> main() async {
         final MediaQueryData mediaQueryData = MediaQuery.of(context);
         return MediaQuery(
           data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
-          child: const MyApp(),
+          child: const InitializationPage(),
         );
       }),
     ),

@@ -55,41 +55,35 @@ class _AccountInfosCardState extends State<AccountInfosCard> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 FeedbackTile(
-                  titre: "Nom:",
-                  data: "---",
+                  titre: "Fullname:",
+                  data: "user Tester",
                   nLigne: 1,
                   isPair: false,
                 ),
                 FeedbackTile(
                   titre: '@Email',
-                  data: "---",
+                  data: "usertester@gmail.com",
                   nLigne: 1,
                   isPair: false,
                 ),
                 FeedbackTile(
                   titre: 'Telephone:',
-                  data: "---",
+                  data: "(+223) xx xx xx xx",
                   nLigne: 1,
                   isPair: false,
                 ),
                 FeedbackTile(
                   titre: 'Adresse:',
-                  data: "---",
+                  data: "Bamako, Mali",
                   nLigne: 1,
                   isPair: false,
                 ),
                 FeedbackTile(
                   titre: 'Genre:',
-                  data: "---",
+                  data: "Man",
                   nLigne: 1,
                   isPair: false,
                 ),
-                /* FeedbackTile(
-                    titre: '',
-                    data: getValue(appState.utilisateur!.created_at ?? '---'),
-                    nLigne: 1,
-                    isPair: false,
-                  ),*/
               ],
             ),
           ),

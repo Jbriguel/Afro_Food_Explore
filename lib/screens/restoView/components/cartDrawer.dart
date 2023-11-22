@@ -34,7 +34,7 @@ class CartDrawer extends StatelessWidget {
                       children: <Widget>[
                         Icon(Icons.shopping_cart),
                         Text(
-                          'Panier',
+                          'Cart',
                           style: Theme.of(context).textTheme.headline6,
                         )
                       ],
@@ -46,7 +46,7 @@ class CartDrawer extends StatelessWidget {
               Expanded(
                 child: const Center(
                   child: Text(
-                    'panier est vide...',
+                    "it's empty...",
                     style:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0),
                   ),
@@ -159,7 +159,7 @@ class CartDrawer extends StatelessWidget {
               child: SizedBox(
                 width: MediaQuery.of(context).size.width * 0.8,
                 child: const AutoSizeText(
-                  """Les frais de livraison, sont pris en compte.""",
+                  """Delivery charges are included.""",
                   presetFontSizes: [12, 11, 10, 9],
                   maxLines: 1,
                   textAlign: TextAlign.center,
@@ -217,7 +217,7 @@ class CartDrawer extends StatelessWidget {
                 onPressed: () {},
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: Text("$total_price €",
+                  child: Text("$total_price Fcfa",
                       style: TextStyle(
                           color: Colors.black,
                           fontSize: 15,
@@ -237,7 +237,7 @@ class CartDrawer extends StatelessWidget {
                   color: Colors.deepOrange.shade400,
                   alignment: Alignment.center,
                   padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: const Text("Continuer",
+                  child: const Text("Continue",
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 16,

@@ -26,23 +26,19 @@ class AccueilScreen extends StatelessWidget {
   List<Map<String, dynamic>> _getRestoCatData() {
     List<Map<String, dynamic>> list = [
       {
-        "text": "Catégorie 1",
-        "icon": LineAwesomeIcons.coffee,
-        "onPress": () {}
-      },
-      {
-        "text": "Catégorie 1",
+        "text": "African dish",
         "icon": LineAwesomeIcons.concierge_bell,
         "onPress": () {}
       },
+      {"text": "Coffee", "icon": LineAwesomeIcons.coffee, "onPress": () {}},
       {
-        "text": "Catégorie 1",
-        "icon": LineAwesomeIcons.pizza_slice,
+        "text": "refreshment stand",
+        "icon": LineAwesomeIcons.cocktail,
         "onPress": () {}
       },
       {
-        "text": "Catégorie 1",
-        "icon": LineAwesomeIcons.cocktail,
+        "text": "Fast Food",
+        "icon": LineAwesomeIcons.pizza_slice,
         "onPress": () {}
       },
     ];

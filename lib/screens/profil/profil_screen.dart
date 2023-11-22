@@ -1,4 +1,3 @@
-
 import 'package:afrofood_explore/theme/colors/appColors.dart';
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
@@ -18,19 +17,19 @@ class ProfilScreen extends StatefulWidget {
 
 class _ProfilScreenState extends State<ProfilScreen>
     with TickerProviderStateMixin {
- 
-   
   //-----------------------------------------------------------------//
- 
+
   //##############################################################//
 
-  Future<void> showDisconnectPopup(context,) async {
+  Future<void> showDisconnectPopup(
+    context,
+  ) async {
     return await showDialog(
       context: context,
       builder: (BuildContext context) {
         return SeDeconnecterAlert(
-         // buttonHandler: (() => Disconnected(appState)),
-        );
+            // buttonHandler: (() => Disconnected(appState)),
+            );
       },
     );
   }
@@ -58,8 +57,8 @@ class _ProfilScreenState extends State<ProfilScreen>
               // SizedBox(height: 10),
               AccountInfosCard(),
               ActionCard(
-                  title: 'Mise à jour',
-                  text: 'Mettre à jour vos données',
+                  title: 'Update',
+                  text: 'Update your information',
                   icon: LineAwesomeIcons.edit,
                   backColors: const [
                     Colors.white,
@@ -77,15 +76,15 @@ class _ProfilScreenState extends State<ProfilScreen>
                   titleColor: AppColors.primaryColor),
 
               ActionCard(
-                  title: "Contribuer",
-                  text: "Nous proposer des quizs pour apporter plus d'aide",
-                  icon: LineAwesomeIcons.helping_hands,
+                  title: "My bookings",
+                  text: "all your bookings",
+                  icon: LineAwesomeIcons.book_open,
                   backColors: const [
                     Colors.white,
                     Colors.white,
                   ],
                   press: () {
-                   /* Navigator.push(
+                    /* Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (_) => const ContribuerScreen(),
@@ -95,40 +94,37 @@ class _ProfilScreenState extends State<ProfilScreen>
                   textColor: Colors.black,
                   titleColor: AppColors.primaryColor),
               ActionCard(
-                  title: "Problème",
-                  text:
-                      "Nous signaler un problème pour nous aider à améliorer l'application",
-                  icon: LineAwesomeIcons.comment_dots,
-                  backColors: const [
-                    Colors.white,
-                    Colors.white,
-                  ],
-                  press: () {
-                    /*Navigator.push(
+                title: "My favorite dishes",
+                text: "a list of your favorite dishes",
+                icon: LineAwesomeIcons.star_1,
+                backColors: const [
+                  Colors.white,
+                  Colors.white,
+                ],
+                press: () {
+                  /*Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (_) => const SignalerProblemeScreen(),
                       ),
                     );*/
-                  },
-                  textColor: Colors.black,
-                  titleColor: AppColors.primaryColor),
+                },
+                textColor: Colors.black,
+                titleColor: AppColors.primaryColor,
+              ),
 
               ActionCard(
-                    title: "Se Deconnecter",
-                    text: "Retourner à la page de connecion",
-                    icon: LineAwesomeIcons.door_closed,
-                    backColors: const [
-                      Color(0xFFfdaf63),
-                      Colors.deepOrangeAccent
-                    ],
-                    press: () {
-                      //showDisconnectPopup(context, appState);
-                    },
-                    textColor: Colors.white,
-                    titleColor: AppColors.witeColor),
-             
-              SizedBox(height: 10),
+                title: "Logout",
+                text: "---",
+                icon: LineAwesomeIcons.door_closed,
+                backColors: const [Color(0xFFfdaf63), Colors.deepOrangeAccent],
+                press: () {
+                  showDisconnectPopup(context);
+                },
+                textColor: Colors.white,
+                titleColor: AppColors.witeColor,
+              ),
+              const SizedBox(height: 10),
             ]),
           ),
         ),

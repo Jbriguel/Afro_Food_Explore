@@ -28,44 +28,21 @@ class _AllRestaurantsScreenState extends State<AllRestaurantsScreen> {
 
   List<Map<String, dynamic>> _getRestoCatData() {
     List<Map<String, dynamic>> list = [
-      {"text": "All", "icon": LineAwesomeIcons.list, "onPress": () {}},
       {
-        "text": "Catégorie 1",
-        "icon": LineAwesomeIcons.coffee,
-        "onPress": () {}
-      },
-      {
-        "text": "Catégorie 1",
+        "text": "African dish",
         "icon": LineAwesomeIcons.concierge_bell,
         "onPress": () {}
       },
+      {"text": "Coffee", "icon": LineAwesomeIcons.coffee, "onPress": () {}},
       {
-        "text": "Catégorie 1",
-        "icon": LineAwesomeIcons.pizza_slice,
-        "onPress": () {}
-      },
-      {
-        "text": "Catégorie 1",
+        "text": "refreshment stand",
         "icon": LineAwesomeIcons.cocktail,
         "onPress": () {}
       },
-    ];
-    return list;
-  }
-
-  List<Map<String, dynamic>> _getRestoData() {
-    List<Map<String, dynamic>> list = [
       {
-        "titre": " Nom de l'Etablissement",
-        "subTitre":
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nibh felis, condimentum ut nisi a, tempor rutrum risus. ",
-        "image": "assets/images/food2.png",
-      },
-      {
-        "titre": " Nom de l'Etablissement",
-        "subTitre":
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nibh felis, condimentum ut nisi a, tempor rutrum risus. ",
-        "image": "assets/images/food2.png",
+        "text": "Fast Food",
+        "icon": LineAwesomeIcons.pizza_slice,
+        "onPress": () {}
       },
     ];
     return list;

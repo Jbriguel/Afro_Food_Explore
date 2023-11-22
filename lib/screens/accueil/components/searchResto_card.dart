@@ -148,9 +148,7 @@ class _ModuleElementCardState extends State<SearchMedocsCard> {
                                   padding: const EdgeInsets.symmetric(
                                       vertical: 5, horizontal: 5),
                                 ),
-                                onPressed: () {
-                                  
-                                },
+                                onPressed: () {},
                                 child: AutoSizeText(
                                   "Search ...",
                                   presetFontSizes: [13, 12, 11, 10],
