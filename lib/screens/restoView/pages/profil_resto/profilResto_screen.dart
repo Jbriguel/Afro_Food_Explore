@@ -78,14 +78,22 @@ class _RestaurantProfilState extends State<RestaurantProfil> {
                     borderRadius: BorderRadius.circular(5.0),
                   ),
                   margin: const EdgeInsets.all(10),
-                  child: Image.asset(
-                    "assets/images/food2.png",
+                  child: FadeInImage(
+                    width: double.infinity,
+                    height: double.infinity,
                     fit: BoxFit.cover,
+                    image: NetworkImage("${widget.restoData.imageUrl ?? ''}"),
+                    placeholder:
+                        const AssetImage("assets/images/placeholdImage.png"),
+                    imageErrorBuilder: (context, error, stackTrace) {
+                      return Image.asset('assets/images/placeholdImage.png',
+                          fit: BoxFit.cover);
+                    },
                   ),
                 ),
               ),
               bottomInfos(),
-              AboutRestoCard(),
+              AboutRestoCard(infos: widget.restoData.apropos ?? ''),
               Card(
                 color: Colors.white,
                 surfaceTintColor: Colors.white,
@@ -109,8 +117,8 @@ class _RestaurantProfilState extends State<RestaurantProfil> {
                 ),
               ),
               ActionCard(
-                  title: 'Faire une réservation',
-                  text: 'Mettre à jour vos données',
+                  title: 'Make a booking',
+                  text: '--',
                   icon: LineAwesomeIcons.book_open,
                   backColors: const [
                     Colors.white,
@@ -127,7 +135,7 @@ class _RestaurantProfilState extends State<RestaurantProfil> {
                   textColor: Colors.black,
                   titleColor: AppColors.primaryColor),
               ActionCard(
-                  title: 'Appeler ( 14:30 - 18:00 )',
+                  title: 'Call ( 14:30 - 18:00 )',
                   text: '---',
                   icon: LineAwesomeIcons.phone,
                   backColors: const [

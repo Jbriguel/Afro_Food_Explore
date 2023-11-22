@@ -2,8 +2,8 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 class AboutRestoCard extends StatelessWidget {
-  const AboutRestoCard({super.key});
-
+  AboutRestoCard({super.key, required this.infos});
+  String infos;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -22,7 +22,7 @@ class AboutRestoCard extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 5.0),
                   child: AutoSizeText(
-                    "A propos de nous ",
+                    "About us ",
                     presetFontSizes: [13, 12, 11],
                     maxLines: 1,
                     textAlign: TextAlign.justify,
@@ -47,10 +47,10 @@ class AboutRestoCard extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              const Padding(
+              Padding(
                 padding: const EdgeInsets.symmetric(vertical: 5.0),
                 child: AutoSizeText(
-                  "Le à propos de la pharmacie",
+                  "${infos ?? ''}",
                   presetFontSizes: const [13, 12, 11],
                   textAlign: TextAlign.start,
                   textDirection: TextDirection.ltr,
