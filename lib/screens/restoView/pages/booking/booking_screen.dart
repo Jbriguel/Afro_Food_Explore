@@ -79,7 +79,7 @@ class _BookingScreenState extends State<BookingScreen> {
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   child: AutoSizeText(
-                    'Formulaire de demande de renseignement',
+                    'Booking forms',
                     maxLines: 1,
                     presetFontSizes: [13, 12, 11, 10],
                     overflow: TextOverflow.ellipsis,

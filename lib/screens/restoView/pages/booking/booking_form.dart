@@ -50,7 +50,7 @@ class BookingForm extends StatelessWidget {
 
           InputTextField(
             type: "nom",
-            text: "Nom & Prénom(s)",
+            text: "Your fulname",
             controller: _fullNameController,
             prefixIcon: false,
             requis: true,
@@ -83,7 +83,7 @@ class BookingForm extends StatelessWidget {
                     ),
                     InputTextField(
                       type: "nom",
-                      text: "Nom & Prénom(s)",
+                      text: "0",
                       controller: _fullNameController,
                       prefixIcon: false,
                       requis: true,
@@ -102,7 +102,7 @@ class BookingForm extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 5, vertical: 10),
                       child: AutoSizeText(
-                        'Numero de Téléphone',
+                        'Phone',
                         maxLines: 1,
                         presetFontSizes: [12, 11, 10],
                         overflow: TextOverflow.ellipsis,
@@ -117,7 +117,7 @@ class BookingForm extends StatelessWidget {
 
                     InputTextField(
                       type: "phone",
-                      text: "Numero Télephone",
+                      text: "your phone",
                       controller: _telController,
                       prefixIcon: false,
                       requis: true,
@@ -214,7 +214,7 @@ class BookingForm extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             child: AutoSizeText(
-              'Informations Supplémentaires',
+              'Additional Informations',
               maxLines: 1,
               presetFontSizes: [12, 11, 10],
               overflow: TextOverflow.ellipsis,
