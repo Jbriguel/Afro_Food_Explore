@@ -1,5 +1,7 @@
+import 'package:afrofood_explore/screens/restoView/pages/profil_resto/profilResto_screen.dart';
 import 'package:afrofood_explore/theme/colors/appColors.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'dart:math' as math show pi;
 
@@ -114,7 +116,7 @@ class _MenuViewScreenState extends State<MenuViewScreen> {
         leading: Builder(
           builder: (BuildContext context) {
             return IconButton(
-              icon: const Icon(Icons.arrow_back_ios_new),
+              icon: const Icon(LineAwesomeIcons.arrow_left),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -122,14 +124,15 @@ class _MenuViewScreenState extends State<MenuViewScreen> {
             );
           },
         ),
-        title: const Padding(
-          padding: EdgeInsets.symmetric(vertical: 2, horizontal: 2),
+        title: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 2),
           child: Text(
             "Menu",
-            style: const TextStyle(
-              fontFamily: "Aller",
-              color: Color.fromARGB(255, 0, 0, 0),
-              fontWeight: FontWeight.bold,
+            style: GoogleFonts.lato(
+              textStyle: const TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Color.fromARGB(255, 0, 0, 0),
+              ),
             ),
           ),
         ),
@@ -138,12 +141,19 @@ class _MenuViewScreenState extends State<MenuViewScreen> {
         elevation: 0.0,
         actions: [
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 3, vertical: 2),
+            padding: EdgeInsets.symmetric(horizontal: 2, vertical: 2),
             child: IconBtnWithCounter(
               icon: LineAwesomeIcons.info_circle,
               // numOfitem: appState.monPanier.OrderList.length,
               numOfitem: 0,
-              press: () {},
+              press: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const RestaurantProfil(),
+                  ),
+                );
+              },
               backCouleur: AppColors.witeColor,
               couleur: AppColors.secondColor,
             ),
@@ -152,7 +162,7 @@ class _MenuViewScreenState extends State<MenuViewScreen> {
             builder: (context, appState, child) => */
 
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 3, vertical: 2),
+            padding: EdgeInsets.symmetric(horizontal: 2, vertical: 2),
             child: IconBtnWithCounter(
               icon: LineAwesomeIcons.shopping_cart,
               // numOfitem: appState.monPanier.OrderList.length,
@@ -173,11 +183,7 @@ class _MenuViewScreenState extends State<MenuViewScreen> {
       ),
 
       //drawer: CartDrawer(),
-      body: SafeArea(
-          child: /*showNavigationDrawer
-              ? */
-              buildDrawerScaffold(context)),
-      // : buildBottomBarScaffold()),
+      body: SafeArea(child: buildDrawerScaffold(context)),
       floatingActionButton: Padding(
         padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
         child: Column(

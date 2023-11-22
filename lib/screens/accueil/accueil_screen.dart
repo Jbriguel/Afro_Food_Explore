@@ -86,7 +86,7 @@ class AccueilScreen extends StatelessWidget {
       backgroundColor: Colors.transparent,
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Column(children: <Widget>[
+          child: Column(children: <Widget> [
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
               child: RechercheBar(

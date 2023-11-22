@@ -5,6 +5,7 @@ import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 import '../accueil/accueil_screen.dart';
 import '../allRestaurants/allRestaurants_screen.dart';
+import '../commandes/myOrders_screen.dart';
 import '../profil/profil_screen.dart';
 import 'components/custom_bubble_navigation_bar/custom_navigation_bar.dart';
 
@@ -62,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
   List<Widget> pages = [
     AccueilScreen(),
     AllRestaurantsScreen(),
-    Container(),
+    MyOrdersScreen(),
     ProfilScreen(),
   ];
 

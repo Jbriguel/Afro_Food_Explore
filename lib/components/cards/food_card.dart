@@ -1,7 +1,9 @@
-import 'package:auto_size_text/auto_size_text.dart'; 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 import 'dart:math' as math show pi;
+
+import 'package:google_fonts/google_fonts.dart';
 
 class FoodCard extends StatefulWidget {
   //Produit produit;
@@ -40,7 +42,7 @@ class _FoodCardState extends State<FoodCard> {
                   height: double.infinity,
                   fit: BoxFit.cover,
                   //image: NetworkImage(  "https://fiftybackend.empireebusiness.com/${widget.produit.image_url ?? ''}"),
-                  image : AssetImage("assets/images/food2.png"),
+                  image: AssetImage("assets/images/food2.png"),
                   placeholder: AssetImage("assets/images/cover1.png"),
                   imageErrorBuilder: (context, error, stackTrace) {
                     return Image.asset('assets/images/cover2.png',
@@ -73,22 +75,15 @@ class _FoodCardState extends State<FoodCard> {
                                 vertical: 2, horizontal: 2),
                             child: AutoSizeText(
                               "widget.produit.name!",
-                              presetFontSizes: const [
-                                20,
-                                18,
-                                17,
-                                16,
-                                15,
-                                14,
-                                13,
-                                12
-                              ],
+                              presetFontSizes: const [18, 17, 15, 14, 13, 12],
                               maxLines: 2,
                               textAlign: TextAlign.justify,
                               textDirection: TextDirection.ltr,
-                              style: style1.copyWith(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
+                              style: GoogleFonts.lato(
+                                textStyle: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
                           ),
@@ -97,13 +92,14 @@ class _FoodCardState extends State<FoodCard> {
                                 vertical: 2, horizontal: 2),
                             child: AutoSizeText(
                               "widget.produit.description",
-                              presetFontSizes: [14, 13, 12, 11],
+                              presetFontSizes: [13, 12, 11],
                               maxLines: 3,
                               overflow: TextOverflow.ellipsis,
-                              style: const TextStyle(
-                                fontFamily: "Aller",
-                                color: Colors.white,
-                                fontWeight: FontWeight.w500,
+                              style: GoogleFonts.lato(
+                                textStyle: const TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
                           ),
@@ -120,7 +116,7 @@ class _FoodCardState extends State<FoodCard> {
                               padding: const EdgeInsets.symmetric(
                                   vertical: 1, horizontal: 8),
                               child: AutoSizeText(
-                                "widget.produit.price_text"  ,
+                                "widget.produit.price_text",
                                 presetFontSizes: const [15, 14, 13, 12, 11],
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
@@ -132,23 +128,12 @@ class _FoodCardState extends State<FoodCard> {
                               ),
                             ),
                           ),
-                          const Padding(
-                            padding: EdgeInsets.symmetric(
-                                vertical: 2, horizontal: 20),
-                            child: Text("Fifty Fifty Tarbes",
-                                style: TextStyle(
-                                    fontFamily: "Aller",
-                                    fontSize: 10,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w200),
-                                textAlign: TextAlign.center),
-                          ),
                         ],
                       ),
                     ),
                   ),
                 ),
-               /* widget.produit.status == 0
+                /* widget.produit.status == 0
                     ? Center(
                         child: Transform.rotate(
                           angle: math.pi / 6,

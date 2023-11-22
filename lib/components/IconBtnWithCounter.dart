@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class IconBtnWithCounter extends StatelessWidget {
@@ -26,14 +25,14 @@ class IconBtnWithCounter extends StatelessWidget {
         clipBehavior: Clip.none,
         children: [
           Container(
-            padding: EdgeInsets.all(8),
+            padding: EdgeInsets.all(5),
             height: 35,
             width: 35,
             decoration: BoxDecoration(
               color: backCouleur.withOpacity(0.9),
               shape: BoxShape.circle,
             ),
-            child: Icon(icon, color: couleur),
+            child: Center(child: Icon(icon, color: couleur)),
           ),
           if (numOfitem != 0)
             Positioned(
