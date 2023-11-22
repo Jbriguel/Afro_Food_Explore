@@ -3,8 +3,8 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-
-import '../../screens/restoView/pages/menu/menuScreen.dart';
+ 
+import '../../screens/restoView/pages/menuView/menuViewScreen.dart';
 
 class RestaurantCard extends StatelessWidget {
   RestaurantCard(
@@ -83,7 +83,10 @@ class RestaurantCard extends StatelessWidget {
               onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (_) => MenuScreen(),
+                  builder: (_) => MenuViewScreen(
+                      //listCat: widget.appState.menuData!,
+                      //catIndex: index,
+                      ),
                 ),
               ),
               icon: const Icon(

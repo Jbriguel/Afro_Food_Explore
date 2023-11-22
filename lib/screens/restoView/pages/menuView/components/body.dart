@@ -1,5 +1,6 @@
 import 'package:afrofood_explore/components/cards/food_card.dart';
-import 'package:auto_size_text/auto_size_text.dart'; 
+import 'package:afrofood_explore/components/selectFoodProcess/processModal.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 class MenuViewBody extends StatefulWidget {
@@ -19,31 +20,32 @@ class _MenuViewBodyState extends State<MenuViewBody> {
   Widget AllFoods() => GridView.builder(
       gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
           maxCrossAxisExtent: 300, crossAxisSpacing: 10, mainAxisSpacing: 10),
-     // itemCount: widget.cat!.list_produits!.length,
-      itemCount:5,
+      // itemCount: widget.cat!.list_produits!.length,
+      itemCount: 5,
       itemBuilder: (BuildContext ctx, index) {
-       // final Produit produit = widget.cat!.list_produits![index];
+        // final Produit produit = widget.cat!.list_produits![index];
         return GestureDetector(
-          onTap: (() => /*((produit.status != 0) && (produit.quantity != 0))
-              ?*/ 
-              /*showDialog(
-                  barrierDismissible: true,
-                  context: context,
-                  builder: (_) => ShowProcessModal1(
-                    btnAction: null,
-                    cartItem: CartItem(
+          onTap:
+              (() => /*((produit.status != 0) && (produit.quantity != 0))
+              ?*/
+                  showDialog(
+                    barrierDismissible: true,
+                    context: context,
+                    builder: (_) => ShowProcessModal1(
+                      btnAction: null,
+                      /*cartItem: CartItem(
                         total_price: produit.price!,
                         qte: 1,
                         accompagnements: [],
-                        produit: produit),
-                  ),
-                )*/
-             // : (() {})
-             {}
-             ),
+                        produit: produit),*/
+                    ),
+                  )
+              // : (() {})
+
+              ),
           child: FoodCard(
-           // produit: produit,
-          ),
+              // produit: produit,
+              ),
         );
       });
 

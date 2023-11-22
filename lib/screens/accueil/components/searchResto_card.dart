@@ -39,6 +39,7 @@ class _ModuleElementCardState extends State<SearchMedocsCard> {
             borderRadius: BorderRadius.circular(10.0),
           ),
           margin: const EdgeInsets.all(5),
+          surfaceTintColor: Colors.white,
           child: SizedBox(
             //height: 120,
             width: MediaQuery.of(context).size.width,

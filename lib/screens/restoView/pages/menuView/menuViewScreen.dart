@@ -137,33 +137,37 @@ class _MenuViewScreenState extends State<MenuViewScreen> {
         backgroundColor: Colors.white,
         elevation: 0.0,
         actions: [
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 3, vertical: 2),
+            child: IconBtnWithCounter(
+              icon: LineAwesomeIcons.info_circle,
+              // numOfitem: appState.monPanier.OrderList.length,
+              numOfitem: 0,
+              press: () {},
+              backCouleur: AppColors.witeColor,
+              couleur: AppColors.secondColor,
+            ),
+          ),
           /* Consumer<ApplicationState>(
             builder: (context, appState, child) => */
-          Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: EdgeInsets.all(1),
-                  child: IconBtnWithCounter(
-                    icon: LineAwesomeIcons.shopping_cart,
-                    // numOfitem: appState.monPanier.OrderList.length,
-                    numOfitem: 5,
-                    press: () {
-                      openPanierDrawer();
-                    },
-                    backCouleur: AppColors.primaryColor,
-                    couleur: Colors
-                        .white, // => Navigator.pushNamed(context, CartScreen.routeName),
-                  ),
-                ),
-                const SizedBox(
-                  width: 3,
-                ),
-              ]),
+
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 3, vertical: 2),
+            child: IconBtnWithCounter(
+              icon: LineAwesomeIcons.shopping_cart,
+              // numOfitem: appState.monPanier.OrderList.length,
+              numOfitem: 5,
+              press: () {
+                openPanierDrawer();
+              },
+              backCouleur: AppColors.witeColor,
+              couleur: AppColors.secondColor,
+            ),
+          ),
+
           //),
-          SizedBox(
-            width: 3,
+          SizedBox.square(
+            dimension: 5,
           ),
         ],
       ),

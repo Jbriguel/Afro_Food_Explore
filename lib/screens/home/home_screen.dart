@@ -5,6 +5,7 @@ import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 import '../accueil/accueil_screen.dart';
 import '../allRestaurants/allRestaurants_screen.dart';
+import '../profil/profil_screen.dart';
 import 'components/custom_bubble_navigation_bar/custom_navigation_bar.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -33,12 +34,12 @@ class _MyHomePageState extends State<MyHomePage> {
         Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("assets/images/blueback.jpg"),
+                image: AssetImage("assets/images/back1.jpg"),
                 fit: BoxFit.cover),
           ),
         ),
         Opacity(
-          opacity: 0.9,
+          opacity: 0.1,
           child: Container(
             color: Colors.white,
           ),
@@ -62,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
     AccueilScreen(),
     AllRestaurantsScreen(),
     Container(),
-    Container(),
+    ProfilScreen(),
   ];
 
   TextStyle styleMenuText(int index) => GoogleFonts.inter(
