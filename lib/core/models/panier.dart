@@ -28,6 +28,28 @@ class Panier {
   set LignesPanier(List<LignePanier> LignesPanier) =>
       _LignesPanier = LignesPanier;
 
+  @override
+  addCartItem(LignePanier elt) {
+    LignesPanier.add(elt);
+  }
+
+  @override
+  void removeItem(int index) {
+    if (index >= 0) {
+      LignesPanier.removeAt(index);
+    }
+  }
+
+  @override
+  double getTotal() {
+    double somme = 0.0;
+    LignesPanier.forEach((LignePanier cartItem) {
+      somme += cartItem.getCartTotal();
+    });
+
+    return somme;
+  }
+
   Map<String, dynamic> toMap() {
     return {
       'total': total,

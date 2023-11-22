@@ -69,7 +69,7 @@ class _OrderCardState extends State<OrderCard> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Fait le',
+                            'Done on',
                             style: TextStyle(
                               color: Colors.black,
                               fontFamily: "Poppins",
@@ -96,9 +96,9 @@ class _OrderCardState extends State<OrderCard> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 12),
+                  SizedBox(height: 8),
                   Text(
-                    'Objet',
+                    'Restaurant',
                     style: TextStyle(
                       color: Colors.black,
                       fontFamily: "Poppins",
@@ -106,7 +106,7 @@ class _OrderCardState extends State<OrderCard> {
                   ),
                   SizedBox(height: 4),
                   AutoSizeText(
-                    "Objet de la demande",
+                    "Bko Restaurant",
                     presetFontSizes: const [13, 12, 11],
                     maxLines: 1,
                     textDirection: TextDirection.ltr,
@@ -116,14 +116,14 @@ class _OrderCardState extends State<OrderCard> {
                       color: Colors.black,
                     ),
                   ),
-                  SizedBox(height: 12),
+                  SizedBox(height: 8),
                   Text(
-                    'Pharmacie',
+                    'Total',
                     style: TextStyle(color: Colors.black),
                   ),
-                  SizedBox(height: 4),
+                  SizedBox(height: 2),
                   AutoSizeText(
-                    "Nom de le Pharmacie",
+                    "12 000 Fcfa",
                     presetFontSizes: const [13, 12, 11],
                     maxLines: 1,
                     textDirection: TextDirection.ltr,
@@ -131,6 +131,54 @@ class _OrderCardState extends State<OrderCard> {
                       fontWeight: FontWeight.w600,
                       fontFamily: "Poppins",
                       color: Colors.black,
+                    ),
+                  ),
+                  SizedBox(height: 8),
+                  Text(
+                    'Mode: Delivery',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: "Poppins",
+                    ),
+                  ),
+                  SizedBox(height: 4),
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 2, horizontal: 2),
+                    child: Align(
+                      alignment: Alignment.centerRight,
+                      child: ElevatedButton(
+                        //Handle button press event
+                        onPressed: () {},
+                        //Contents of the button
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: Colors.white,
+                          backgroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            side: const BorderSide(
+                              color: Colors.white60,
+                            ),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          disabledForegroundColor:
+                              Colors.white.withOpacity(0.38),
+                          disabledBackgroundColor:
+                              Colors.white.withOpacity(0.12),
+                          elevation: 1.0,
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 10, horizontal: 15),
+                        ),
+                        child: const AutoSizeText(
+                          "View order details",
+                          presetFontSizes: [13, 12, 11],
+                          maxLines: 1,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Poppins'),
+                        ),
+                      ),
                     ),
                   ),
                 ],

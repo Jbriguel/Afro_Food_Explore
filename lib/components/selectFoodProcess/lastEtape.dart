@@ -1,19 +1,20 @@
-import 'package:auto_size_text/auto_size_text.dart'; 
-import 'package:flutter/material.dart'; 
+import 'package:afrofood_explore/core/models/lignePanier.dart';
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../core/services/controllers/appState.dart';
+
 class Etape3 extends StatefulWidget {
-  //CartItem cartItem;
- // void Function(ApplicationState appState, CartItem item, BuildContext ctx)
-   //   AddToCart;
+  LignePanier cartItem;
+  void Function(ApplicationState appState, LignePanier item, BuildContext ctx)
+      AddToCart;
   void Function() toBack;
   Etape3(
       {Key? key,
-     // required this.cartItem,
+      required this.cartItem,
       required this.toBack,
-      
-      //required this.AddToCart
-      })
+      required this.AddToCart})
       : super(key: key);
   @override
   State<StatefulWidget> createState() => Etape3State();
@@ -42,80 +43,87 @@ class Etape3State extends State<Etape3> with SingleTickerProviderStateMixin {
   @override
   // ignore: missing_return
   Widget build(BuildContext context) {
-    return  Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(top: 10.0, bottom: 5.0),
-            child: Center(
-              child: Text('widget.cartItem.produit!.name ?? ""',
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                      fontFamily: 'Aller',
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black)),
+    return Consumer<ApplicationState>(
+      builder: (context, ApplicationState appState, child) {
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(top: 10.0, bottom: 5.0),
+              child: Center(
+                child: Text(widget.cartItem.produit!.name ?? "",
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                        fontFamily: 'Aller',
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black)),
+              ),
             ),
-          ),
-          const Padding(
-            padding: EdgeInsets.only(top: 10.0, bottom: 5.0),
-            child: Center(
-              child: Text("Valider le plat",
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                      fontFamily: 'Aller',
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black)),
+            const Padding(
+              padding: EdgeInsets.only(top: 10.0, bottom: 5.0),
+              child: Center(
+                child: Text("Valider le plat",
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                        fontFamily: 'Aller',
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black)),
+              ),
             ),
-          ),
-          FeedbackTile(
-            titre:
-               ' "{widget.cartItem.produit!.name ?? ""}(x {widget.cartItem.qte})"',
-            data: '"{widget.cartItem.getCartTotal()} €"',
-          ),
-           
-          const Divider(),
-          const SizedBox(height: 20),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
-            child: Row(mainAxisSize: MainAxisSize.min, children: <Widget>[
-              Expanded(
-                child: ElevatedButton(
-                  onPressed: () {
-                    widget.toBack();
-                  },
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.deepOrange.shade400),
-                  child: const Text("retour",
-                      style:
-                          TextStyle(fontFamily: 'Aller', color: Colors.white)),
+            FeedbackTile(
+              titre:
+                  "${widget.cartItem.produit!.name ?? ""}(x ${widget.cartItem.qte})",
+              data:
+                  "${widget.cartItem.getCartTotal()} ${widget.cartItem.unity}",
+            ),
+            const Divider(),
+            const SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+              child: Row(mainAxisSize: MainAxisSize.min, children: <Widget>[
+                Expanded(
+                  child: ElevatedButton(
+                    onPressed: () {
+                      widget.toBack();
+                    },
+                    style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5)),
+                        backgroundColor: Colors.deepOrange.shade400),
+                    child: const Text("cancel",
+                        style: TextStyle(
+                            fontFamily: 'Aller', color: Colors.white)),
+                  ),
                 ),
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Expanded(
-                child: ElevatedButton(
-                  onPressed: () {
-                  //  widget.AddToCart(appState, widget.cartItem, context);
-                  },
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.deepOrange.shade400),
-                  child: Text("Ajouter au panier",
-                      style: const TextStyle(
-                          fontFamily: 'Aller', color: Colors.white)),
+                SizedBox(
+                  width: 10,
                 ),
-              ),
-            ]),
-          ),
-        ],
-    
+                Expanded(
+                  child: ElevatedButton(
+                    onPressed: () {
+                      widget.AddToCart(appState, widget.cartItem, context);
+                    },
+                    style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        backgroundColor: Colors.deepOrange.shade400),
+                    child: Text("add to cart",
+                        style: const TextStyle(
+                            fontFamily: 'Aller', color: Colors.white)),
+                  ),
+                ),
+              ]),
+            ),
+          ],
+        );
+      },
     );
   }
 
 //------------------------------------------------------------//
 
   //-------------------------------------------------------------//
-
 }
 
 class FeedbackTile extends StatelessWidget {

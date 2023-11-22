@@ -1,5 +1,6 @@
 import 'dart:async'; // new
 import 'dart:io';
+import 'package:afrofood_explore/core/models/panier.dart';
 import 'package:cloud_firestore/cloud_firestore.dart'; 
 import 'package:firebase_core/firebase_core.dart'; // new
 import 'package:flutter/foundation.dart' show kIsWeb;
@@ -16,6 +17,9 @@ class ApplicationState extends ChangeNotifier {
   DateTime _now = DateTime.now();
   bool _loggedIn = false;
   bool get loggedIn => _loggedIn;
+
+  
+  Panier? monPanier;
 
   // Add from here... 
 

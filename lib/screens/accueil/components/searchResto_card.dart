@@ -87,7 +87,7 @@ class _ModuleElementCardState extends State<SearchMedocsCard> {
                                     padding: const EdgeInsets.symmetric(
                                         vertical: 5.0),
                                     child: AutoSizeText(
-                                      "Rechercher Médicaments",
+                                      "Search Restaurant...",
                                       presetFontSizes: const [13, 12, 11],
                                       maxLines: 2,
                                       textAlign: TextAlign.justify,
@@ -111,7 +111,7 @@ class _ModuleElementCardState extends State<SearchMedocsCard> {
                             Padding(
                               padding: const EdgeInsets.symmetric(vertical: 5),
                               child: AutoSizeText(
-                                "Faites vos recherches de médicaments en toute simplicité",
+                                "Search for nearby restaurants with ease",
                                 presetFontSizes: [12, 11, 10],
                                 maxLines: 2,
                                 overflow: TextOverflow.ellipsis,
@@ -149,16 +149,10 @@ class _ModuleElementCardState extends State<SearchMedocsCard> {
                                       vertical: 5, horizontal: 5),
                                 ),
                                 onPressed: () {
-                                  /* Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (_) =>
-                                          RechercherMedicamentsScreen(),
-                                    ),
-                                  );*/
+                                  
                                 },
                                 child: AutoSizeText(
-                                  "Rechercher ...",
+                                  "Search ...",
                                   presetFontSizes: [13, 12, 11, 10],
                                   maxLines: 1,
                                   style: GoogleFonts.lato(

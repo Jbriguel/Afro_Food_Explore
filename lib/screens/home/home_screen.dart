@@ -104,14 +104,14 @@ class _MyHomePageState extends State<MyHomePage> {
           icon: const Icon(
             LineAwesomeIcons.shopping_cart,
           ),
-          title: Text("Commandes",
+          title: Text("Orders",
               textAlign: TextAlign.center, style: styleMenuText(2)),
         ),
         CustomNavigationBarItem(
           icon: const Icon(
             LineAwesomeIcons.user_circle,
           ),
-          title: Text("Profil",
+          title: Text("Account",
               textAlign: TextAlign.center, style: styleMenuText(3)),
         ),
       ],

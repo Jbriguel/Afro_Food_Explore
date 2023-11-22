@@ -1,3 +1,4 @@
+import 'package:afrofood_explore/core/models/restaurant.dart';
 import 'package:afrofood_explore/screens/restoView/pages/profil_resto/conponents/aboutCard.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,8 @@ import '../booking/booking_screen.dart';
 import 'conponents/miniMapCard.dart';
 
 class RestaurantProfil extends StatefulWidget {
-  const RestaurantProfil({super.key});
+  Restaurant restoData;
+  RestaurantProfil({super.key, required this.restoData});
 
   @override
   State<RestaurantProfil> createState() => _RestaurantProfilState();
@@ -50,9 +52,9 @@ class _RestaurantProfilState extends State<RestaurantProfil> {
             ),
           ),
           centerTitle: true,
-          title: const Text(
-            " Restaurant A",
-            style: TextStyle(
+          title: Text(
+            widget.restoData.name ?? '',
+            style: const TextStyle(
               fontFamily: "Poppins",
               color: Colors.black,
               fontSize: 14,
@@ -153,14 +155,18 @@ class _RestaurantProfilState extends State<RestaurantProfil> {
         contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
         leading: CircleAvatar(
           backgroundColor: AppColors.secondColor.withOpacity(0.1),
-          child: Image.asset(
-            "assets/illustrations/food.png",
-            fit: BoxFit.contain,
+          child: FadeInImage(
             width: 30,
             height: 30,
+            fit: BoxFit.cover,
+            image: NetworkImage("${widget.restoData.logoUrl ?? ''}"),
+            placeholder: AssetImage("assets/images/food2.png"),
+            imageErrorBuilder: (context, error, stackTrace) {
+              return Image.asset("assets/images/food2.png", fit: BoxFit.cover);
+            },
           ),
         ),
-        title: AutoSizeText("titre",
+        title: AutoSizeText(widget.restoData.name ?? '',
             presetFontSizes: [13, 12, 11, 10],
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
@@ -171,7 +177,7 @@ class _RestaurantProfilState extends State<RestaurantProfil> {
               ),
             )),
         subtitle: AutoSizeText(
-          "Adresse",
+          widget.restoData.address ?? '',
           presetFontSizes: [11, 10],
           maxLines: 2,
           overflow: TextOverflow.ellipsis,

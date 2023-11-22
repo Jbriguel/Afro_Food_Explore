@@ -1,22 +1,20 @@
+import 'package:afrofood_explore/core/models/panier.dart';
 import 'package:afrofood_explore/theme/colors/appColors.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
- 
+import 'package:provider/provider.dart';
+
+import '../../core/models/restaurant.dart';
+import '../../core/services/controllers/appState.dart';
 import '../../screens/restoView/pages/menuView/menuViewScreen.dart';
 
 class RestaurantCard extends StatelessWidget {
+  Restaurant restoData;
   RestaurantCard(
-      {super.key,
-      required this.titre,
-      required this.subTitre,
-      required this.image,
-      setSecondaryColor = false});
+      {super.key, required this.restoData, setSecondaryColor = false});
 
-  String titre;
-  String subTitre;
-  String image;
   bool setSecondaryColor = false;
 
   Color getBackColor() =>
@@ -26,7 +24,9 @@ class RestaurantCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return  Consumer<ApplicationState>(
+        builder: (BuildContext context, appState, widget) {
+          return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(5.0),
       ),
@@ -46,15 +46,26 @@ class RestaurantCard extends StatelessWidget {
                 topLeft: Radius.circular(5),
                 topRight: Radius.circular(5),
               ),
-              image:
-                  DecorationImage(image: AssetImage(image), fit: BoxFit.cover),
+              image: DecorationImage(
+                  image: NetworkImage(restoData.imageUrl!), fit: BoxFit.cover),
+            ),
+            child: FadeInImage(
+              width: double.infinity,
+              height: double.infinity,
+              fit: BoxFit.cover,
+              image: NetworkImage("${restoData.imageUrl ?? ''}"),
+              placeholder: AssetImage("assets/images/placeholdImage.png"),
+              imageErrorBuilder: (context, error, stackTrace) {
+                return Image.asset("assets/images/placeholdImage.png",
+                    fit: BoxFit.cover);
+              },
             ),
           ),
           bottomInfos(),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 2),
             child: Text(
-              subTitre,
+              restoData.apropos!,
               maxLines: 3,
               overflow: TextOverflow.ellipsis,
               textAlign: TextAlign.left,
@@ -80,21 +91,22 @@ class RestaurantCard extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
               ),
-              onPressed: () => Navigator.push(
+              onPressed: () {
+                appState.monPanier = Panier(total: "0", restoUid: restoData.uid!, LignesPanier: []);
+                Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (_) => MenuViewScreen(
-                      //listCat: widget.appState.menuData!,
-                      //catIndex: index,
+                  builder: (_) => MenuViewScreen(listRefCat: restoData.menu,restoData:restoData
+                       
                       ),
                 ),
-              ),
+              );},
               icon: const Icon(
-                LineAwesomeIcons.info_circle,
+                Icons.menu_book_sharp,
                 color: Colors.white,
               ),
               label: Text(
-                "Plus d'informations",
+                "View Restaurant",
                 style: GoogleFonts.lato(
                   textStyle: Theme.of(context).textTheme.bodyMedium,
                   fontSize: 12,
@@ -107,20 +119,25 @@ class RestaurantCard extends StatelessWidget {
         ],
       ),
     );
-  }
+  });}
 
+//
   bottomInfos() => ListTile(
         contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
         leading: CircleAvatar(
           backgroundColor: AppColors.secondColor.withOpacity(0.1),
-          child: Image.asset(
-            "assets/illustrations/food.png",
-            fit: BoxFit.contain,
+          child: FadeInImage(
             width: 30,
             height: 30,
+            fit: BoxFit.cover,
+            image: NetworkImage("${restoData.logoUrl ?? ''}"),
+            placeholder: AssetImage("assets/images/food2.png"),
+            imageErrorBuilder: (context, error, stackTrace) {
+              return Image.asset("assets/images/food2.png", fit: BoxFit.cover);
+            },
           ),
         ),
-        title: AutoSizeText(titre,
+        title: AutoSizeText(restoData.name ?? "",
             presetFontSizes: [13, 12, 11, 10],
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
@@ -131,7 +148,7 @@ class RestaurantCard extends StatelessWidget {
               ),
             )),
         subtitle: AutoSizeText(
-          "Adresse",
+          restoData.address ?? "",
           presetFontSizes: [11, 10],
           maxLines: 2,
           overflow: TextOverflow.ellipsis,

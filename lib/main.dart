@@ -13,7 +13,7 @@ Future<void> main() async {
   // Initialisation de SharedPreferencesHelper
 
   await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
+    options: DefaultFirebaseOptions.android,
   );
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,

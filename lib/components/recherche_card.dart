@@ -36,7 +36,7 @@ class _RechercheBarState extends State<RechercheBar> {
         decoration: InputDecoration(
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
-          hintText: "rechercher ... ",
+          hintText: "Search ... ",
           hintStyle: TextStyle(color: Colors.black.withOpacity(0.8)),
           filled: true,
           enabled: true,

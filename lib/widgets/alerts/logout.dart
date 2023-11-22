@@ -115,7 +115,7 @@ class SeDeconnecterAlertState extends State<SeDeconnecterAlert>
                                   elevation: 1.0,
                                   backgroundColor: Colors.white),
                               child: const Text(
-                                "Annuler",
+                                "Cancel",
                                 style: TextStyle(
                                     fontFamily: "Aller",
                                     fontSize: 12,

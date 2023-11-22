@@ -1,12 +1,10 @@
- 
-import 'package:flutter/material.dart'; 
+import 'package:afrofood_explore/core/models/lignePanier.dart';
+import 'package:flutter/material.dart';
 
 class Etape1 extends StatefulWidget {
-  //CartItem cartItem;
+  LignePanier cartItem;
   void Function() toNext;
-  Etape1({Key? key,
-  // required this.cartItem,
-    required this.toNext})
+  Etape1({Key? key, required this.cartItem, required this.toNext})
       : super(key: key);
   @override
   State<StatefulWidget> createState() => Etape1State();
@@ -41,7 +39,7 @@ class Etape1State extends State<Etape1> with SingleTickerProviderStateMixin {
         Padding(
           padding: const EdgeInsets.only(top: 10.0, bottom: 5.0),
           child: Center(
-            child: Text('widget.cartItem.produit!.name ?? ""',
+            child: Text(widget.cartItem.produit!.name ?? "",
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                     fontFamily: 'Aller',
@@ -88,8 +86,7 @@ class Etape1State extends State<Etape1> with SingleTickerProviderStateMixin {
                   width: double.infinity,
                   height: double.infinity,
                   fit: BoxFit.cover,
-                  image: AssetImage("assets/images/placeholdImage.png"),
-                  //NetworkImage(  "https://fiftybackend.empireebusiness.com/${widget.cartItem.produit!.image_url!}"),
+                  image: NetworkImage("${widget.cartItem.produit!.imageUrl!}"),
                   placeholder: AssetImage("assets/images/placeholdImage.png"),
                   imageErrorBuilder: (context, error, stackTrace) {
                     return Image.asset('assets/images/warning.png',
@@ -131,7 +128,7 @@ class Etape1State extends State<Etape1> with SingleTickerProviderStateMixin {
             Expanded(
               child: TextButton(
                 onPressed: () => setState(() {
-                 // widget.cartItem.decQte();
+                  widget.cartItem.decQte();
                 }),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -157,7 +154,7 @@ class Etape1State extends State<Etape1> with SingleTickerProviderStateMixin {
                 onPressed: () {},
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: Text('"{widget.cartItem.qte}"',
+                  child: Text("${widget.cartItem.qte}",
                       style: const TextStyle(
                           color: Colors.black,
                           fontSize: 15,
@@ -168,7 +165,7 @@ class Etape1State extends State<Etape1> with SingleTickerProviderStateMixin {
             Expanded(
               child: TextButton(
                 onPressed: () => setState(() {
-                 // widget.cartItem.incQte();
+                  widget.cartItem.incQte();
                 }),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -217,7 +214,7 @@ class Etape1State extends State<Etape1> with SingleTickerProviderStateMixin {
                 onPressed: () {},
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: Text('"{widget.cartItem.getCartTotal()}€"',
+                  child: Text("${widget.cartItem.getCartTotal()}€",
                       style: TextStyle(
                           color: Colors.black,
                           fontSize: 15,

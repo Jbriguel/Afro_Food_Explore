@@ -1,18 +1,16 @@
+import 'package:afrofood_explore/core/models/lignePanier.dart';
+import 'package:afrofood_explore/core/services/controllers/appState.dart';
 import 'package:flutter/material.dart';
-import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import 'package:provider/provider.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart'; 
 
 import '../../widgets/alerts/askToAnnulerCart.dart';
 import 'etape1.dart';
 import 'lastEtape.dart';
 
 class ShowProcessModal1 extends StatefulWidget {
-  //CartItem cartItem;
+  LignePanier cartItem;
   Function? btnAction;
-  ShowProcessModal1(
-      {Key? key,
-      //required this.cartItem,
-      required this.btnAction})
+  ShowProcessModal1({Key? key, required this.cartItem, required this.btnAction})
       : super(key: key);
   @override
   State<StatefulWidget> createState() => ShowProcessModal1State();
@@ -30,12 +28,13 @@ class ShowProcessModal1State extends State<ShowProcessModal1>
     });
   }
 
-  /*void AddToCart(ApplicationState appState, CartItem item, BuildContext ctx) {
+  void AddToCart(
+      ApplicationState appState, LignePanier item, BuildContext ctx) {
     setState(() {
-      appState.monPanier.addCartItem(item);
+      appState.monPanier!.addCartItem(item);
     });
     Navigator.of(ctx).pop();
-  }*/
+  }
 
   void toBack() {
     setState(() {
@@ -90,12 +89,11 @@ class ShowProcessModal1State extends State<ShowProcessModal1>
                             ),
                           ],
                         ),
-                        child: Etape1(
-                            //cartItem: widget.cartItem,
-                            toNext: toNext)),
+                        child:
+                            Etape1(cartItem: widget.cartItem, toNext: toNext)),
                   ],
 
-                  if (etape == 3) ...[
+                  if (etape == 2) ...[
                     Container(
                       width: orientation == Orientation.portrait
                           ? MediaQuery.of(context).size.width * 0.8
@@ -116,10 +114,9 @@ class ShowProcessModal1State extends State<ShowProcessModal1>
                         ],
                       ),
                       child: Etape3(
-                        //  cartItem: widget.cartItem,
-                        toBack: toBack,
-                        //AddToCart: AddToCart
-                      ),
+                          cartItem: widget.cartItem,
+                          toBack: toBack,
+                          AddToCart: AddToCart),
                     ),
                   ],
                   //----------------------------//
@@ -182,8 +179,8 @@ class ShowProcessModal1State extends State<ShowProcessModal1>
                   width: double.infinity,
                   height: double.infinity,
                   fit: BoxFit.cover,
-                  image:  AssetImage("assets/images/placeholdImage.png"),
-                 // NetworkImage( "https://fiftybackend.empireebusiness.com/${widget.cartItem.produit!.image_url!}"),
+                  image: AssetImage("assets/images/placeholdImage.png"),
+                  // NetworkImage( "https://fiftybackend.empireebusiness.com/${widget.cartItem.produit!.image_url!}"),
                   placeholder: AssetImage("assets/images/placeholdImage.png"),
                   imageErrorBuilder: (context, error, stackTrace) {
                     return Image.asset('assets/images/warning.png',
@@ -203,5 +200,4 @@ class ShowProcessModal1State extends State<ShowProcessModal1>
         ),
       );
   //-------------------------------------------------------------//
- 
 }

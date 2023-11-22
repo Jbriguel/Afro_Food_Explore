@@ -15,7 +15,7 @@ class MyOrdersScreen extends StatefulWidget {
 
 class _MyOrdersScreenState extends State<MyOrdersScreen>
     with TickerProviderStateMixin {
-  final _selectedSegment = ValueNotifier('Demande recente');
+  final _selectedSegment = ValueNotifier('Recent requests');
 
   @override
   Widget build(BuildContext context) {
@@ -41,31 +41,28 @@ class _MyOrdersScreenState extends State<MyOrdersScreen>
                         controller: _selectedSegment,
                         backgroundColor: AppColors.secondColor.withOpacity(0.2),
                         segments: {
-                          'Demande recente': 'Demande recente',
-                          'Aciennes Demandes': 'Aciennes Demandes',
+                          'Recent requests': 'Recent requests',
+                          'Old Requests': 'Old Requests',
                         },
                       ),
                     ),
                     ValueListenableBuilder<String>(
                       valueListenable: _selectedSegment,
                       builder: (_, key, __) {
-                        if (_selectedSegment.value == "Demande recente") {
+                        if (_selectedSegment.value == "Recent requests") {
                           return Column(
                             children: [
                               OrderCard(
-                                etat: "En Attente",
+                                etat: "Waiting...",
                               ),
                               OrderCard(
-                                etat: "En Attente",
-                              ),
-                              OrderCard(
-                                etat: "En Attente",
+                                etat: "Waiting...",
                               ),
                             ],
                           );
                         } else {
                           return OrderCard(
-                            etat: "Répondu",
+                            etat: "It's okay!",
                           );
                         }
                       },
