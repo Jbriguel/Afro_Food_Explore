@@ -117,23 +117,24 @@ class _RestaurantProfilState extends State<RestaurantProfil> {
                 ),
               ),
               ActionCard(
-                  title: 'Make a booking',
-                  text: '--',
-                  icon: LineAwesomeIcons.book_open,
-                  backColors: const [
-                    Colors.white,
-                    Colors.white,
-                  ],
-                  press: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => const BookingScreen(),
-                      ),
-                    );
-                  },
-                  textColor: Colors.black,
-                  titleColor: AppColors.primaryColor),
+                title: 'Make a booking',
+                text: '--',
+                icon: LineAwesomeIcons.book_open,
+                backColors: const [
+                  Colors.white,
+                  Colors.white,
+                ],
+                press: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const BookingScreen(),
+                    ),
+                  );
+                },
+                textColor: Colors.black,
+                titleColor: AppColors.primaryColor,
+              ),
               ActionCard(
                   title: 'Call ( 14:30 - 18:00 )',
                   text: '---',
